@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from .models import balance,history
 from .forms import add_money, sendform
 
+from django.contrib.auth.decorators import login_required
+@login_required
 
 def add_bal(request):
     form = add_money(request.POST)
@@ -22,6 +24,7 @@ def add_bal(request):
         form = add_money()
     return render(request, 'add.html', {'form': form})
 
+@login_required
 
 def send(request):
     form = sendform(request.POST)
@@ -45,5 +48,5 @@ def send(request):
             print("uer does not exist")
     return render(request, 'transfer.html', {"form": form})
 def statement(request):
-    qs=history.objects.all()
+    qs=history.objects.all().filter(owner=request.user)
     return render(request,"history.html",{"qs":qs})

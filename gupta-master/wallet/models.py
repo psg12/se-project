@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class balance(models.Model):
-    WUser = models.OneToOneField(User, on_delete=models.CASCADE)
+    WUser = models.ForeignKey(User,on_delete=models.CASCADE)
     balance = models.PositiveIntegerField(default=0)
     remark=models.CharField(max_length=255)
     def __str__(self):

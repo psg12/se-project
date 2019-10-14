@@ -2,13 +2,14 @@
 from django.shortcuts import render, redirect
 from wallet.models import balance
 from .forms import userlogin,UserCreationForm
+from django.contrib.auth import authenticate, login
 
 from django.contrib.auth.decorators import login_required
 
 #profile page
 @login_required
 def index(request):
-    bal = balance.objects.get_or_create(WUser=request.user)
+    bal = balance.objects.get(WUser=request.user)
     a=bal
 
     return render(request, 'registration/home.html', {"balance": a})
@@ -20,8 +21,12 @@ def Signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            #a=balance.objects.create(WUser=request.user)
-            #a.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            a=balance.objects.create(WUser=request.user)
+            a.save()
             return redirect('/user')
     else:
         form = UserCreationForm()
