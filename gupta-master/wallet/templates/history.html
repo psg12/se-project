@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+<style>
+body {background-color: #D5D8DC;}
+h1   {color: #1C2833;}
+hr{  border-width: 5px;}
+
+</style>
+</head>
+<body>
+<h1>Transaction History<h1>
+{%  for ele in qs %}
+
+<h6>{{ele.tosend}}</h6>
+<h6>{{ele.remark}}</h6>
+<h6>{{ele.time}}</h6>
+<h6>{{ele.amount}}</h6>
+<hr>
+</body>
+
+{% endfor %}              
+{% endblock %}

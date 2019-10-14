@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+body {background-color: #D5D8DC;}
+h1{color:teal}
+</style>
+<body>
+
+
+<h1>My Account</h1>
+<hr>
+{% if user.is_authenticated %} Hello {{ user }} Your Account Balance Is: {{ balance.balance  }}
+<br><br>
+<hr>
+<br>
+<a href="{% url 'logout' %}">Logout</a>
+<br>
+<br>
+<br>
+<br>
+{% else %}
+<a href="/user/login" >LOGIN</a>
+<a href="/user/signup" >SIGNIN</a>
+
+ 
+{% endif %}
+  
+
+    </body>
+   
+ {% endblock %} 

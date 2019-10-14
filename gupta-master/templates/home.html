@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+body {background-color: #D5D8DC;}
+</style>
+<body>
+
+</body>
+
+<div class="container-fluid home-main">
+		<h2 align="center">Sym E Wallet </h2>
+		
+	</div>
+	<div class="container-fluid home-content1">
+		<div class="row">
+			<div class="col-md-6 ">
+				<h3>Why to use Sym E Wallet </h3>
+        <br>
+				<p>Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.</p>
+			
+			</div>
+      
+			<div class="col-md-6 content1-right">
+      <br>
+      <br>
+       <br>
+      <br>
+      <br>
+      
+      
+				<p>Sym E wallet is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.</p>
+			</div>
+		</div>
+	</div>
+	
+     
+    <br>
+    <br>
+          {% if user.is_authenticated %}
+
+          <div class="row center">
+                <a href="user/ " id="download-button" class="btn-large waves-effect waves-light teal ">WELCOME BACK {{user}}</a>
+                </div>
+          <br><br>
+    {% else %}
+
+    <div class="row center">
+            <a href="user/signup" id="download-button" class="btn-large waves-effect waves-light teal ">Sign Up to Get Started</a>
+          </div>
+          <br><br>
+          {% endif %}
+    
+
+      <hr>
+      
+    
+   
+
+
+{% endblock %}

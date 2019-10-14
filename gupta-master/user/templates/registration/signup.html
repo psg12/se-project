@@ -1,0 +1,28 @@
+
+
+ {% extends 'base.html' %} 
+ {% load crispy_forms_tags %}
+ {% block content %}
+<style>
+body {background-color: #D5D8DC;}
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: #D6EAF8;
+}
+</style>
+<body>
+
+</body>
+
+<form method="POST">
+ 
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button   >Register</button>
+</form>
+{% endblock %}

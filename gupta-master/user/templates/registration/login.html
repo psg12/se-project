@@ -1,0 +1,97 @@
+
+{%  extends "base.html" %} 
+
+
+{% block content %}
+<style>
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: #1C2833;
+}
+
+
+
+.card-header h3{
+color: white;
+}
+
+
+
+.input-group-prepend span{
+width: 50px;
+background-color: #ECF0F1;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+
+
+
+body {background-color: #D5D8DC;}
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: #D6EAF8;
+}
+
+</style>
+
+
+
+<body>
+
+</body>
+<br>
+<br>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Login</h3>
+
+
+<div class="card-body">
+
+  <div class="form-group">
+   <form method="post" action="/user/login/">
+    {% csrf_token %}
+    <div class="form-group">
+    <p>
+            <label for="id_username"><i class="fas fa-user"></i><bold>Username</bold></label>
+            <input class="form-control" id="id_username" name="username" autofocus="" required="" type="text">
+        </p>
+    <p>
+            <label for="id_password"><i class="fas fa-key"></i><bold>Password</bold></label>
+            <input class="form-control" id="id_password" name="password" autofocus="" required="" type="password">
+        </p>
+    <button type="submit" > Login</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+
+{% endblock %}
